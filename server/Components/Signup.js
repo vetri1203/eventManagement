@@ -1,21 +1,21 @@
 import { UserSchema } from "../Models/LoginSchema.js";
 import bcrypt from 'bcrypt';
+ 
 
-
-
+ 
 export const Signup = async(req,res)=>{
 
     const{FirstName,LastName,PhoneNumber,Email,Password}=req.body;
 
     if(!FirstName || !LastName|| !PhoneNumber || !Email || !Password){
-        return res.send("enter all details");
-    }
-
+        return res.status(500).send("Enter all details");
+    } 
+ 
     try{
         const checkUser = await UserSchema.findOne({Email:Email});
 
         if(checkUser){
-           return res.send({messgae:"user already exist.."});
+           return res.send("user already exist..");
         }
 
         else{
@@ -33,19 +33,19 @@ export const Signup = async(req,res)=>{
                 await adduser.save();
                 if(adduser){
                     console.log(adduser);
-                    return res.send(adduser);
+                    return res.send("Signup successful");
                 }
                 else{
                     return res.send("unable to add user")
                 }
             }
             catch(e){
-                return res.send("e",e);
-            }
+                return res.send("Error",e);
+            }     
         }
     }
     catch(e){
-        res.send("eror while check the user");
+        res.send("Check your Network Connection...");
     }
 
 

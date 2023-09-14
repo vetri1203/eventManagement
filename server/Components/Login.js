@@ -1,5 +1,6 @@
 import { UserSchema } from "../Models/LoginSchema.js";
 import bcrypt from 'bcrypt';
+
 export const Login = async(req,res)=>{
 
     const {Email,Password} = req.body;
@@ -24,7 +25,7 @@ export const Login = async(req,res)=>{
                 }
             }
             else{
-                res.send("No user Found")
+                res.send("No User Found")
             }
         }
         catch(e){
