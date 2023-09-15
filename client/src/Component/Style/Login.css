@@ -1,0 +1,101 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.Logincontainer {
+    margin-left: 940px;
+    margin-top: 85px;
+}
+
+.HeadingLogin{
+    color: #0F0E0E;
+    font-family: Inter;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.QuoteLogin {
+    color: #0F0E0E;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 452px;
+    margin-bottom: 35px;
+}
+
+.inputEmail {
+    width: 385px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #D9D9D9;
+    border-style: none;
+    cursor: pointer;
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.inputPassword{
+    width: 385px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #D9D9D9;
+    border-style: none;
+    cursor: pointer;
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.SubmitBtn {
+    width: 130px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: #515BBA;
+    border-style: none;
+    cursor: pointer;
+    color: #FFFEFE;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+}
+
+.SubmitAccountBtn {
+    width: 200px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: #D9D9D9;
+    border-style: none;
+    cursor: pointer;
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    margin-left: 38px;
+}
+
