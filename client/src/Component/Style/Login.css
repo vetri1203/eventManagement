@@ -8,13 +8,16 @@
     margin-top: 85px;
 }
 
-.HeadingLogin{
+.HeadingLogin {
     color: #0F0E0E;
+    position: absolute;
     font-family: Inter;
     font-size: 35px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    margin-top: -55px;
+    margin-right: 300px;
 }
 
 .QuoteLogin {
@@ -26,6 +29,7 @@
     line-height: normal;
     width: 452px;
     margin-bottom: 35px;
+    margin-right: -66px;
 }
 
 .inputEmail {
@@ -79,6 +83,7 @@
     font-weight: 400;
     line-height: normal;
     text-align: center;
+    margin-right: 245px;
 }
 
 .SubmitAccountBtn {
@@ -96,6 +101,33 @@
     font-weight: 400;
     line-height: normal;
     text-align: center;
-    margin-left: 38px;
+    margin-left: 50px;
+    margin-top: -40px;
 }
+
+span {
+    color: red;
+    margin-top: -100px;
+    margin-right: 228px;
+}
+
+img.logoImage {
+    width: 225px;
+    margin-top: -140px;
+    margin-left: -890px;
+    position: absolute;
+}
+
+img.loginimage {
+    position: absolute;
+    margin-top: 60px;
+    margin-left: -800px;
+}
+
+form.formlogin {
+    position: absolute;
+    margin-top: 75px;
+}
+
+
 

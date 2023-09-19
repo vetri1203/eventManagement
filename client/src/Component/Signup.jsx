@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './Style/Signup.css';
+import firstimage from '../Component/Images/Perfect_Planners.png';
+import secondimaeg from '../Component/Images/signupimage.jpeg';
 
 const Signup = () => {
   const nav = useNavigate();
@@ -76,9 +79,20 @@ const Signup = () => {
   };
 
   return (
+    <div className="main_container">
     <>
+
+    <img src={firstimage} alt="logo" className="logosignupImage" />
+
+    <img src={secondimaeg} alt="loginimage" className="signupimage" />
       <form action="post" onSubmit={HandleSubmit}>
+
+      <h1 className="HeadingSignup">SignUp</h1><br/>
+
+      <h4 className="Quotesignup">Unlock exclusive access and join our community by SignUp up today.</h4><br/>
+
         <input
+        className="FirstName"
           type="text"
           value={FirstName}
           onChange={(e) => setFirstName(e.target.value)}
@@ -87,6 +101,7 @@ const Signup = () => {
         />
 
         <input
+        className="LastName"
           type="text"
           value={LastName}
           onChange={(e) => setLastName(e.target.value)}
@@ -95,14 +110,7 @@ const Signup = () => {
         />
 
         <input
-          type="email"
-          value={Email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          required
-        />
-
-        <input
+          className="PhoneNumber"
           type="tel" 
           value={PhoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
@@ -111,6 +119,16 @@ const Signup = () => {
         />
 
         <input
+          className="Email"
+          type="email"
+          value={Email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          required
+        />
+
+        <input
+          className="Password"
           type="password"
           value={Password}
           onChange={(e) => setPassword(e.target.value)}
@@ -118,13 +136,15 @@ const Signup = () => {
           required
         />
 
-        <button type="submit">Signup</button>
-        <button type="submit" onClick={loginNav}>
-          Login
-        </button>
         <span>{Error}</span>
+
+        <button type="submit" className="Signupbtn" onClick={loginNav}>Signup</button>
+        {/* <button type="submit" onClick={loginNav} className="">
+          Login
+        </button> */}
       </form>
     </>
+    </div>
   );
 };
 export default Signup;
