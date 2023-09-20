@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -54,7 +54,7 @@ const Login = () => {
             setPassword("");
             
             setStatus("Logged In");
-            navigate("/");
+            navigate("/home",{state:{id:Email}});
           } else {
             setGetData((prev) => ({ ...prev, isLoading: false }));
 
@@ -87,6 +87,7 @@ const Login = () => {
   const SignupLink = () => {
     navigate("/signup");
   };
+
 
   return (
     <>

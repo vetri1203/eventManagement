@@ -1,14 +1,9 @@
-
+import { useLocation } from "react-router-dom";
 
 function App() {
-
- 
-  return (
-    <div className="App">
-        Appss 
-      
-    </div>
-  );
+  const location = useLocation();
+  const mail = location.state.email;
+  return <div className="App">{mail}</div>;
 }
 
 export default App;

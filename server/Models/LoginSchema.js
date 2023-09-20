@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-
+ 
 const Login = mongoose.Schema({
     FirstName:{
         type:String,
