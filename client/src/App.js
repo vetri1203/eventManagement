@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
@@ -19,6 +20,7 @@ const App = () => {
       <img src={logoimage}  alt='img' className='logoimage'/>
     </div>
   );
+
 }
 
 export default App;

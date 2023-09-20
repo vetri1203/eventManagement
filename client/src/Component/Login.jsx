@@ -1,5 +1,7 @@
+
 import { useState } from "react";
 import  './Style/Login.css';
+
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import firstimage from '../Component/Images/Perfect_Planners.png';
@@ -58,7 +60,7 @@ const Login = () => {
             setPassword("");
             
             setStatus("Logged In");
-            navigate("/");
+            navigate("/home",{state:{id:Email}});
           } else {
             setGetData((prev) => ({ ...prev, isLoading: false }));
 
@@ -91,6 +93,7 @@ const Login = () => {
   const SignupLink = () => {
     navigate("/signup");
   };
+
 
   return (
     <>
