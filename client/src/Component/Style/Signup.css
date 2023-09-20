@@ -1,0 +1,151 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 50px;
+    margin-right: 220px;
+}
+
+h1.HeadingSignup {
+    margin-right: 285px;
+}
+
+.Quotesignup{
+    color: #0F0E0E;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 452px;
+    margin-right: -65px;
+    margin-bottom: 20px;
+}
+
+
+.FirstName{
+    width: 385px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #D9D9D9;
+    border-style: none;
+    cursor: pointer;
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.LastName{
+    width: 385px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #D9D9D9;
+    border-style: none;
+    cursor: pointer;
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.PhoneNumber{
+    width: 385px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #D9D9D9;
+    border-style: none;
+    cursor: pointer;
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.Email{
+    width: 385px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #D9D9D9;
+    border-style: none;
+    cursor: pointer;
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.Password{
+    width: 385px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #D9D9D9;
+    border-style: none;
+    cursor: pointer;
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.Signupbtn{
+    width: 130px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: #515BBA;
+    border-style: none;
+    cursor: pointer;
+    color: #FFFEFE;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    margin-right: 123px;
+    margin-top: 120px;
+}
+
+img.signupimage {
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 60px;
+}
+
+img.logosignupImage {
+    width: 225px;
+    margin-top: -100px;
+    position: absolute;
+    margin-left: 30px;
+}

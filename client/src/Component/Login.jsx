@@ -1,6 +1,12 @@
-import {  useEffect, useState } from "react";
+
+import { useState } from "react";
+import  './Style/Login.css';
+
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import firstimage from '../Component/Images/Perfect_Planners.png';
+import secondimaeg from '../Component/Images/login_image.jpg';
+import { useEffect } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -92,25 +98,36 @@ const Login = () => {
   return (
     <>
       <div className="Logincontainer">
-        <form action="post" onSubmit={HandleSubmit}>
+
+      <img src={firstimage} alt="logo" className="logoImage" />
+
+      <img src={secondimaeg} alt="loginimage" className="loginimage" />
+
+        <form action="post" onSubmit={HandleSubmit} className="formlogin">
+
+          <h1 className="HeadingLogin">Login</h1><br/>
+
+          <h4 className="QuoteLogin">To keep connected with us please login with your personal information by email and password.</h4><br/>
+
           <input
+            className="inputEmail"
             type="email"
             placeholder="Email"
             value={Email}
             onChange={EmailChange}
-          />
+          /><br/>
           <input
+            className="inputPassword"
             type="password"
             placeholder="Password"
             value={Password}
             onChange={PasswordChange}
-          />
+          /><br/>
 
-          <button type="submit" >Login
-            {/* {getData.isLoading ? "Logging in..." : "Login"} */}
-          </button>
+          <button className="SubmitBtn" type="submit">Login</button>
+         
 
-          <button onClick={SignupLink}>Signup</button>
+          <button className="SubmitAccountBtn" onClick={SignupLink}>Create Account</button>
 
           <span>{Error}</span>
           <h1>{status}</h1>
