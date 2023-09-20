@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './Style/Signup.css';
 import firstimage from '../Component/Images/Perfect_Planners.png';
@@ -14,6 +14,22 @@ const Signup = () => {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [Error, setError] = useState("");
+  const [msg, setMsg] = useState("");
+  const [getdata, setgetData] = useState({
+    isLoading: false,
+    isData: undefined,
+    serverError: null,
+  });
+
+
+  useEffect(() => {
+    if (getdata.isLoading) {
+      setMsg("Loading");
+      console.log("Loading....");
+    } else {
+      setMsg("");
+    }
+  }, [getdata.isLoading]);
 
   const validEmail = (email) => {
     const checkemail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -29,39 +45,54 @@ const Signup = () => {
     return Password.length > 7;
   };
 
+ 
+
+
   const HandleSubmit = async (e) => {
+    setError("");
     e.preventDefault();
 
     if (validEmail(Email)) {
+      setgetData((prev) => ({ ...prev, isLoading: true }));
       if (!validNumber(PhoneNumber)) {
         if (validPassword(Password)) {
+          try {
+            const response = await axios.post("http://localhost:8082/signup", {
+              FirstName,
+              LastName,
+              Email,
+              PhoneNumber,
+              Password,
+            });
 
-            //connect to database
-          const response = await axios.post("http://localhost:8082/signup", {
-            FirstName,
-            LastName,
-            Email,
-            PhoneNumber,
-            Password,
-          });
+            if (response.data === "Signup successful") {
+              setgetData((prev) => ({
+                ...prev,
+                isLoading: false,
+                isData: response.data,
+              }));
 
-          if(response.data === 'Signup successful')
-          {
-            setEmail('');
-            setPassword('');
-            setFirstName('');
-            setLastName('');
-            setPhoneNumber('');
-            setError('');
-            alert(response.data)
-            nav('/login')
+              setEmail("");
+              setPassword("");
+              setFirstName("");
+              setLastName("");
+              setPhoneNumber("");
+              setError("");
+              alert(response.data);
+              nav("/login");
+            } else {
+              setgetData((prev)=>({...prev,isLoading:false}))
+              return setError(response.data);
+            }
+          } catch (error) {
+            setgetData((prev) => ({
+              ...prev,
+              isLoading: false,
+              isData: undefined,
+              serverError: error,
+            }));
           }
-          else{
-            return setError(response.data)
-          }
-          
-
-          
+          //connect to database
         } else {
           setPassword("");
           return setError("Password length should be in the range of 8-15");
@@ -139,9 +170,10 @@ const Signup = () => {
         <span>{Error}</span>
 
         <button type="submit" className="Signupbtn" onClick={loginNav}>Signup</button>
-        {/* <button type="submit" onClick={loginNav} className="">
+        <button type="submit" onClick={loginNav} className="">
           Login
-        </button> */}
+        </button>
+        <h1>{msg}</h1>
       </form>
     </>
     </div>

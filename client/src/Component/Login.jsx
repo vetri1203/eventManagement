@@ -4,47 +4,82 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import firstimage from '../Component/Images/Perfect_Planners.png';
 import secondimaeg from '../Component/Images/login_image.jpg';
+import { useEffect, useState } from "react";
+
 const Login = () => {
   const navigate = useNavigate();
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [Error, setError] = useState("");
+  const [status, setStatus] = useState("");
+
+  const [getData, setGetData] = useState({
+    isLoading: false,
+    isdata: undefined,
+    serverError: null,
+  });
+
+  useEffect(() => {
+    if (getData.isLoading) {
+      setStatus('Loading');
+      console.log('Loading...');
+    }
+    else{
+      setStatus('');
+    }
+  }, [getData.isLoading]);
 
   const validEmail = (email) => {
     const checkemail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return checkemail.test(email);
   };
 
-  const validPassword = (Password) => {
-    return Password.length > 7;
+  const validPassword = (password) => {
+    return password.length >= 8 && password.length <= 15;
   };
 
   const HandleSubmit = async (e) => {
+    setError('');
     e.preventDefault();
 
     if (validEmail(Email)) {
+      setGetData((prev) => ({ ...prev, isLoading: true }));
       if (validPassword(Password)) {
-        const response = await axios.post("http://localhost:8082/login", {
-          Email,
-          Password,
-        });
+        try {
+          const response = await axios.post("http://localhost:8082/login", {
+            Email,
+            Password,
+          });
 
-        if (response.data === "ok Login") {
-          setError("");
-          setEmail("");
-          setPassword("");
-          alert("Loged In...");
-          navigate("/");
-        } else {
-          return setError(response.data);
+          if (response.data === "ok Login") {
+            setGetData((prev) => ({ ...prev, isLoading: false, isdata: true }));
+            setError("");
+            setEmail("");
+            setPassword("");
+            
+            setStatus("Logged In");
+            navigate("/");
+          } else {
+            setGetData((prev) => ({ ...prev, isLoading: false }));
+
+            setError(response.data);
+          }
+        } catch (error) {
+          setStatus('')
+          setGetData((prev) => ({
+            ...prev,
+            isLoading: false,
+            serverError: error,
+          }));
         }
       } else {
-        return setError("Password length should be in the range of 8-15");
+        setError("Password length should be in the range of 8-15");
       }
     } else {
-      return setError("Enter the Proper Email");
+      setError("Enter the Proper Email");
     }
   };
+
   const EmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -56,6 +91,7 @@ const Login = () => {
   const SignupLink = () => {
     navigate("/signup");
   };
+
   return (
     <>
       <div className="Logincontainer">
@@ -86,10 +122,12 @@ const Login = () => {
           /><br/>
 
           <button className="SubmitBtn" type="submit">Login</button>
+         
 
           <button className="SubmitAccountBtn" onClick={SignupLink}>Create Account</button>
 
           <span>{Error}</span>
+          <h1>{status}</h1>
         </form>
       </div>
     </>
