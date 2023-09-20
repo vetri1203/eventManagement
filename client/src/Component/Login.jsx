@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import firstimage from '../Component/Images/Perfect_Planners.png';
 import secondimaeg from '../Component/Images/login_image.jpg';
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
