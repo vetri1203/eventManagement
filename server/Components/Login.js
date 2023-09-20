@@ -10,9 +10,9 @@ export const Login = async(req,res)=>{
         res.send({message:"Enter all details"});
 
     }
-    else{
+    else{ 
         const checkUser = await UserSchema.findOne({Email:Email});
-
+ 
         try{
             if(checkUser)
             {
@@ -21,7 +21,7 @@ export const Login = async(req,res)=>{
                     res.send("ok Login")
                 }
                 else{
-                    res.send({message:"enter correct password.."})
+                    res.send("enter correct password..")
                 }
             }
             else{

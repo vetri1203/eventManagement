@@ -22,7 +22,7 @@ const Login = mongoose.Schema({
         type:String,
         require:true
     }
-},{timestaps:true});
+},{ timestamps: true });
 
 
 export const UserSchema = mongoose.model('userDatas',Login);
