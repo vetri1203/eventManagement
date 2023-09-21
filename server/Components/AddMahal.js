@@ -1,48 +1,8 @@
-// import { MahalDetails } from "../Models/MahalDetails.js";
-// import multer from 'multer'
-
-// export const AddMahal = async(req,res)=>{
-//     // res.send('ok');
-
-//     const {MahalName,NumberOfSeat,Images,Rooms,MahalType}=req.body;
-
-//     const storage = multer.diskStorage({
-//         destination:'mahal Images',
-//         filename:(req,file,call)=>{
-//             call(null,file.originalname);
-//         },
-//     });
-//     const upload = multer({
-//         storage:storage
-//     }).single('Images');
-
-//     upload(req,res,async(err)=>{
-//         if(err)
-//         {
-//             return   res.send("Error",err);
-//         }
-//         try {
-//             const newData = new MahalDetails({
-//                 MahalName:req.body.MahalName,
-//                 NumberOfSeat:req.body.NumberOfSeat,
-//                 Rooms:req.body.Rooms,
-//                 MahalType:req.body.MahalType,
-//                 // Images:{data:req.file.buffer}
-//             });
-
-//             const saveData = await newData.save();
-//             res.send(saveData)
-//         } catch (error) {
-//             res.send("error in save data...")
-//         }
-
-//     })
-// }
 import { MahalDetails } from "../Models/MahalDetails.js";
 import multer from "multer";
 
 const storage = multer.diskStorage({
-  destination: "mahalImages", 
+  destination: "mahalImages",
   filename: (req, file, callback) => {
     callback(null, file.originalname);
   },
@@ -54,11 +14,29 @@ const upload = multer({
 
 export const AddMahal = async (req, res) => {
   try {
-    const { MahalName, NumberOfSeat, Rooms, MahalType } = req.body;
+    const {
+      MahalName,
+      NumberOfSeat,
+      Rooms,
+      MahalType,
+      Amount,
+      Place,
+      Parking,
+      About,
+    } = req.body;
 
-    if (!MahalName || !NumberOfSeat || !Rooms || !MahalType) {
+    if (
+      !MahalName ||
+      !NumberOfSeat ||
+      !Rooms ||
+      !MahalType ||
+      !Amount ||
+      !Place ||
+      !Parking ||
+      !About
+    ) {
       return res.status(400).send("Please provide all required fields.");
-    }   
+    }
 
     upload(req, res, async (err) => {
       if (err) {
@@ -66,17 +44,24 @@ export const AddMahal = async (req, res) => {
       }
 
       try {
+        const date = new Date();
+        const id = date;
         const newMahal = new MahalDetails({
           MahalName: MahalName,
-          NumberOfSeat: NumberOfSeat, 
+          NumberOfSeat: NumberOfSeat,
           Rooms: Rooms,
           MahalType: MahalType,
-        //   Images:{data:req.file.buffer}
+          Amount: Amount,
+          Parking: Parking, 
+          Place: Place,
+          Id: id,
+          About: About,
+          //   Images:{data:req.file.buffer}
         });
 
         const savedMahal = await newMahal.save();
         res.status(201).json(savedMahal);
-      } catch (error) { 
+      } catch (error) {
         console.error("Error saving MahalDetails:", error);
         res.status(500).send("Error in saving data.");
       }
@@ -84,5 +69,5 @@ export const AddMahal = async (req, res) => {
   } catch (error) {
     console.error("Error in AddMahal:", error);
     res.status(500).send("Server error.");
-  }  
-}; 
+  }
+};

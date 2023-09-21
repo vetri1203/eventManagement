@@ -13,7 +13,7 @@ export const Search = async (req, res) => {
         message: "All Mahal",
         MahalDetails: finding,
       };
-      return res.json(response.MahalDetails);
+      return res.json(response.MahalDetails); 
     } else {
       const finding = await MahalDetails.find({ MahalName: mahalRegex });
 

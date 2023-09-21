@@ -60,7 +60,7 @@ const Login = () => {
             setPassword("");
             
             setStatus("Logged In");
-            navigate("/home",{state:{id:Email}});
+            navigate("/home",{state:{id:Email}});  //pass the user Email to Home Page 
           } else {
             setGetData((prev) => ({ ...prev, isLoading: false }));
 

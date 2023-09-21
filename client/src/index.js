@@ -4,7 +4,8 @@ import App from './App';
 import Login from './Component/Login';
 import {Route, BrowserRouter, Routes} from 'react-router-dom'
 import Signup from './Component/Signup';
-import Home from './Component/Mahal';
+import Home from './Component/Home';
+import AboutMahal from './Component/AboutMahal';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +15,7 @@ root.render(
     <Route path='/login' Component={Login}/>
     <Route path='/signup' Component={Signup}/>
     <Route path='/home' Component={Home}/>
+    <Route  path='/about' Component ={AboutMahal}/>
   </Routes>
   
   </BrowserRouter>

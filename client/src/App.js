@@ -12,7 +12,7 @@ const App = () => {
   const data= useEffect(() => {
   const timer = setTimeout(() => Navigate('/login'), 3000);
   return () => clearTimeout(timer);
-}, []);
+},);
 
 
   return (

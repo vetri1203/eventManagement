@@ -169,7 +169,7 @@ const Signup = () => {
 
         <span>{Error}</span>
 
-        <button type="submit" className="Signupbtn" onClick={loginNav}>Signup</button>
+        <button type="submit" className="Signupbtn">Signup</button>
         <button type="submit" onClick={loginNav} className="">
           Login
         </button>
