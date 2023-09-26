@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import firstimage from '../Component/Images/Perfect_Planners.png';
 import secondimaeg from '../Component/Images/login_image.jpg';
 import { useEffect } from "react";
+import Cookies from 'js-cookie';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -31,6 +32,12 @@ const Login = () => {
     }
   }, [getData.isLoading]);
 
+      //set the token in cookies 
+  const storeTokenInCookie = (token) => {
+    Cookies.set('tokenName', token, { expires: 1/24 });
+
+  };
+
   const validEmail = (email) => {
     const checkemail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return checkemail.test(email);
@@ -48,19 +55,21 @@ const Login = () => {
       setGetData((prev) => ({ ...prev, isLoading: true }));
       if (validPassword(Password)) {
         try {
-          const response = await axios.post("http://localhost:8082/login", {
+          const response = await axios.post("http://localhost:8081/login", {
             Email,
             Password,
           });
 
-          if (response.data === "ok Login") {
+          if (response.data.webtoken) {
             setGetData((prev) => ({ ...prev, isLoading: false, isdata: true }));
+            storeTokenInCookie(response.data.webtoken);
             setError("");
             setEmail("");
             setPassword("");
-            
             setStatus("Logged In");
-            navigate("/home",{state:{id:Email}});  //pass the user Email to Home Page 
+
+            navigate("/home");
+              //pass the user Email to Home Page 
           } else {
             setGetData((prev) => ({ ...prev, isLoading: false }));
 

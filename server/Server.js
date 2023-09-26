@@ -21,5 +21,5 @@ mongoose.connect(process.env.MONGO_URL)
     
  
                 //assigning port number
-app.listen(8082,()=>console.log(`app listening in port of ${process.env.PORT_No}`));
+app.listen(8081,()=>console.log(`app listening in port of ${process.env.PORT_No}`));
  

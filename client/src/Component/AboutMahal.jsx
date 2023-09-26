@@ -12,7 +12,7 @@ const AboutMahal = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post(`http://localhost:8082/about`, {
+        const response = await axios.post(`http://localhost:8081/about`, {
           id,
         });
         console.log(response.data);

@@ -1,12 +1,21 @@
 import axios from "axios";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import decode from 'jwt-decode';
+import Cookies from "js-cookie";
+
 
 const Home = () => {
   const navigate = useNavigate()
   const location = useLocation();
 
-console.log(location.state);
+const cookiesData = Cookies.get('tokenName');
+  console.log(decode(cookiesData).Email);
+  // const token = location.state.id;
+  // console.log(decode(token).Email);
+
+
+// console.log(location.state.id);
   const [Mahal, setMahal] = useState("");
   const [listOfMahal, setList] = useState([]);
   const [error, setError] = useState(null);
@@ -16,7 +25,7 @@ console.log(location.state);
     e.preventDefault();
     console.log(Mahal);
     try {
-      const response = await axios.post(`http://localhost:8082/search`, {
+      const response = await axios.post(`http://localhost:8081/search`, {
         Mahal,
       });
 

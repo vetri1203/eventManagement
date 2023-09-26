@@ -57,7 +57,7 @@ const Signup = () => {
       if (!validNumber(PhoneNumber)) {
         if (validPassword(Password)) {
           try {
-            const response = await axios.post("http://localhost:8082/signup", {
+            const response = await axios.post("http://localhost:8081/signup", {
               FirstName,
               LastName,
               Email,
