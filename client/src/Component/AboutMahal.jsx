@@ -1,15 +1,25 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const AboutMahal = () => {
   const location = useLocation();
-  console.log(location.state.id);
-  const id = location.state.id;
+  const navigate = useNavigate();
+
+  const cookiesData = Cookies.get("tokenname");
 
   const [responseData, setResponseData] = useState([]);
 
   useEffect(() => {
+    if (!cookiesData) {
+      console.log("no user");
+      alert("login and try again...");
+      return navigate("/login");
+      
+    }
+    const id = location.state.id;
+    console.log("user");
     const fetchData = async () => {
       try {
         const response = await axios.post(`http://localhost:8081/about`, {
@@ -23,43 +33,45 @@ const AboutMahal = () => {
     };
 
     fetchData();
-  }, [id]);
+  }, [cookiesData,navigate,location.state]);
 
   return (
     <>
-      <div>
-        <div>
-          <span>Mahal Name :</span>
-          {responseData.MahalName} <br />
+      {cookiesData && (
+        <div className="Container">
+          <div>
+            <span>Mahal Name :</span>
+            {responseData.MahalName} <br />
+          </div>
+          <div>
+            <span>Seat Capacity :</span> {responseData.NumberOfSeat}
+          </div>
+          <br />
+          <div>
+            <span>Rooms :</span> {responseData.Rooms}
+          </div>{" "}
+          <br />
+          <div>
+            <span>MahalType :</span>
+            {responseData.MahalType} <br />
+          </div>
+          <div>
+            <span>Amount :</span> {responseData.Amount} <br />
+          </div>
+          <div>
+            <span>Parking :</span> {responseData.Parking} <br />
+          </div>{" "}
+          <br />
+          <div>
+            {" "}
+            <span>Place:</span>
+            {responseData.Place} <br />
+          </div>
+          <div>
+            <span> About :</span> {responseData.About}
+          </div>
         </div>
-        <div>
-          <span>Seat Capacity :</span> {responseData.NumberOfSeat}
-        </div>
-        <br />
-        <div>
-          <span>Rooms :</span> {responseData.Rooms}
-        </div>{" "}
-        <br />
-        <div>
-          <span>MahalType :</span>
-          {responseData.MahalType} <br />
-        </div>
-        <div>
-          <span>Amount :</span> {responseData.Amount} <br />
-        </div>
-        <div>
-          <span>Parking :</span> {responseData.Parking} <br />
-        </div>{" "}
-        <br />
-        <div>
-          {" "}
-          <span>Place:</span>
-          {responseData.Place} <br />
-        </div>
-        <div>
-          <span> About :</span> {responseData.About}
-        </div>
-      </div>
+      )}
     </>
   );
 };

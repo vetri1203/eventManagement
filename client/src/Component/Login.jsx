@@ -44,6 +44,7 @@ const Login = () => {
   };
 
   const validPassword = (password) => {
+    
     return password.length >= 8 && password.length <= 15;
   };
 
@@ -84,6 +85,7 @@ const Login = () => {
           }));
         }
       } else {
+        setGetData((prev) => ({ ...prev, isLoading: false }));
         setError("Password length should be in the range of 8-15");
       }
     } else {

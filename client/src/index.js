@@ -6,7 +6,6 @@ import {Route, BrowserRouter, Routes} from 'react-router-dom'
 import Signup from './Component/Signup';
 import Home from './Component/Home';
 import AboutMahal from './Component/AboutMahal';
-import Calendars from './Component/Calendar';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
@@ -16,7 +15,6 @@ root.render(
     <Route path='/signup' Component={Signup}/>
     <Route path='/home' Component={Home}/>
     <Route  path='/about' Component ={AboutMahal}/>
-    <Route path='/cal' Component={Calendars}/>
   </Routes>
   
   </BrowserRouter>
