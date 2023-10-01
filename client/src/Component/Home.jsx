@@ -20,8 +20,11 @@ const Home = () => {
 
   useEffect(() => {
     if (!cookiesData) {
-      alert("login and try again..")
+
+      console.log("home");
+      alert("login and try again..");
       navigate("/login");
+      return;
     } else {
       console.log(decode(cookiesData).Email);
     }
