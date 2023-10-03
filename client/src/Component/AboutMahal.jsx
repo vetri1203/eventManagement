@@ -2,12 +2,13 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Calendar from "./Calender";
 
 const AboutMahal = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const cookiesData = Cookies.get("tokenname");
+  const cookiesData = Cookies.get("tokenName");
 
   const [responseData, setResponseData] = useState([]);
 
@@ -16,9 +17,11 @@ const AboutMahal = () => {
       console.log("no user");
       alert("login and try again...");
       return navigate("/login");
-      
     }
     const id = location.state.id;
+    if (!id) {
+      navigate("/home");
+    }
     console.log("user");
     const fetchData = async () => {
       try {
@@ -33,7 +36,7 @@ const AboutMahal = () => {
     };
 
     fetchData();
-  }, [cookiesData,navigate,location.state]);
+  }, [cookiesData, navigate, location.state]);
 
   return (
     <>
@@ -70,6 +73,7 @@ const AboutMahal = () => {
           <div>
             <span> About :</span> {responseData.About}
           </div>
+          <Calendar />
         </div>
       )}
     </>
