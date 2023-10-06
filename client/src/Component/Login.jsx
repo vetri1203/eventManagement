@@ -136,8 +136,6 @@ const Login = () => {
           /><br/>
 
           <button className="SubmitBtn" type="submit">Login</button>
-         
-
           <button className="SubmitAccountBtn" onClick={SignupLink}>Create Account</button>
 
           <span>{Error}</span>

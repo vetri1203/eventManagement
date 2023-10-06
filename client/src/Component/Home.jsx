@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import decode from "jwt-decode";
 import Cookies from "js-cookie";
+import './Style/Home.css';
+import MainImage from '../Component/Images/homeimage1.png';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -84,16 +86,37 @@ const Home = () => {
 
   return (
     <>
+
+    <div className="headerSectionMain">
+      <div className="headerSectionLow">
+        <h1 className="nameHead">PERFECT PLANNERS</h1>
+      </div>
+    </div>
+    <div className="mainpage1">
+      <div className="imageContainer">
+        <img src={MainImage} alt="mainimg" className="imagecontainer"/>
+      </div>
+      <div className="aboutContainer">
+        <div className="aboutContent">
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea expedita, officia, ut facere quisquam quibusdam voluptas tempore, fugit velit eveniet accusantium distinctio. Doloribus id consequatur a incidunt maxime nihil aliquam.</p>
+        </div>
+        <div className="buttonAbout">
+          <button className="AboutUsBtn">About Us</button>
+        </div>
+      </div>
+    </div>
+
       {cookiesData && (
+      <div className="searchContainer">
         <div className="HomeContaier">
-          <form action="post" onSubmit={SearchSubmit}>
+          <form action="post" onSubmit={SearchSubmit} className="formSearch">
             <input
               type="text"
-              placeholder="Search"
+              placeholder="Search Marriage Mahal"
               value={Mahal}
               onChange={handleSearch}
             />
-            <button type="submit">Search</button>
+            <button type="submit" className="searchbtn">Search</button>
           </form>
 
           {error ? (
@@ -102,12 +125,12 @@ const Home = () => {
             <div className="listContainer">
               {listOfMahal.map((data, i) => (
                 <div key={i}>
-                  <span>
+                  <span className="mahalname">
                     <b>{data.MahalName}</b> <br />
                   </span>
-                  <span>Price : {data.Amount}</span> <br />
-                  <span>Seat : {data.NumberOfSeat}</span>
-                  <button onClick={() => VewCard(data.Id)}>View more</button>
+                  <span className="mahalamount">Price : {data.Amount}</span> <br />
+                  <span className="mahalSeats">Seat : {data.NumberOfSeat}</span>
+                  <button onClick={() => VewCard(data.Id)} className="viewmorebtn">View more</button>
                 </div>
               ))}
             </div>
@@ -118,9 +141,12 @@ const Home = () => {
             <span>{status}</span>
           </div>
         </div>
+      </div>
       )}
     </>
   );
 };
 
 export default Home;
+
+
