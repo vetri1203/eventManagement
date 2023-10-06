@@ -21,8 +21,7 @@ const AboutMahal = () => {
     const id = location.state.id;
     if (!id) {
       navigate("/home");
-    }
-    console.log("user");
+    } 
     const fetchData = async () => {
       try {
         const response = await axios.post(`http://localhost:8081/about`, {
