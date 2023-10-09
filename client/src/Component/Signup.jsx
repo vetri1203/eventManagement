@@ -170,7 +170,7 @@ const Signup = () => {
         <span>{Error}</span>
 
         <button type="submit" className="Signupbtn">Signup</button>
-        <button type="submit" onClick={loginNav} className="">
+        <button type="submit" onClick={loginNav} className="logintopage">
           Login
         </button>
         <h1>{msg}</h1>

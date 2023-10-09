@@ -111,6 +111,7 @@ const Home = () => {
         <div className="HomeContaier">
           <form action="post" onSubmit={SearchSubmit} className="formSearch">
             <input
+            className="SearchMahal"
               type="text"
               placeholder="Search Marriage Mahal"
               value={Mahal}
@@ -124,7 +125,7 @@ const Home = () => {
           ) : (
             <div className="listContainer">
               {listOfMahal.map((data, i) => (
-                <div key={i}>
+                <div key={i} >
                   <span className="mahalname">
                     <b>{data.MahalName}</b> <br />
                   </span>

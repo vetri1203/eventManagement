@@ -18,8 +18,8 @@ app.use(Routes);
 //Mongodb Atlas: process.env.MONGO_URL
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/event")
-  // .connect(process.env.MONGO_URL)
+//   .connect("mongodb://127.0.0.1:27017/event")
+  .connect(process.env.MONGO_URL)
   .then(() => console.log("DataBase connected sucessfully"))
   .catch((e) => console.log(`Error while connecting DataBase ${e}`));
 

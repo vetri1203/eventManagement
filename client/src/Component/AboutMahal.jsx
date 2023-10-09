@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Calendar from "./Calender";
+import '../Component/Style/AboutMahal.css';
 
 const AboutMahal = () => {
   const location = useLocation();
@@ -42,35 +43,34 @@ const AboutMahal = () => {
       {cookiesData && (
         <div className="Container">
           <div>
-            <span>Mahal Name :</span>
-            {responseData.MahalName} <br />
+            <span className="mahalName">Mahal Name :   {responseData.MahalName}</span>
+             {/* <br /> */}
           </div>
           <div>
-            <span>Seat Capacity :</span> {responseData.NumberOfSeat}
+            <span>Seat Capacity :   {responseData.NumberOfSeat}</span> 
           </div>
-          <br />
+          {/* <br /> */}
           <div>
-            <span>Rooms :</span> {responseData.Rooms}
+            <span>Rooms :   {responseData.Rooms}</span> 
           </div>{" "}
-          <br />
+          {/* <br /> */}
           <div>
-            <span>MahalType :</span>
-            {responseData.MahalType} <br />
+            <span>MahalType :   {responseData.MahalType}</span> <br />
           </div>
           <div>
-            <span>Amount :</span> {responseData.Amount} <br />
+            <span>Amount :   {responseData.Amount}</span>  <br />
           </div>
           <div>
-            <span>Parking :</span> {responseData.Parking} <br />
+            <span>Parking :   {responseData.Parking}</span>  <br />
           </div>{" "}
-          <br />
+          {/* <br /> */}
           <div>
             {" "}
-            <span>Place:</span>
-            {responseData.Place} <br />
+            <span>Place:   {responseData.Place}</span>
+             <br />
           </div>
           <div>
-            <span> About :</span> {responseData.About}
+            <span> About :   {responseData.About}</span> 
           </div>
           <Calendar />
         </div>

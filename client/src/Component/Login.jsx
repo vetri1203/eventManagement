@@ -125,11 +125,13 @@ const Login = () => {
             type="email"
             placeholder="Email"
             value={Email}
+            required
             onChange={EmailChange}
           /><br/>
           <input
             className="inputPassword"
             type="password"
+            required
             placeholder="Password"
             value={Password}
             onChange={PasswordChange}
@@ -137,10 +139,13 @@ const Login = () => {
 
           <button className="SubmitBtn" type="submit">Login</button>
           <button className="SubmitAccountBtn" onClick={SignupLink}>Create Account</button>
-
+          <h2 className="statementOR">OR</h2>
+          
           <span>{Error}</span>
           <h1>{status}</h1>
+
         </form>
+        <button className="buttonGoogle">Continue with Google</button>
       </div>
     </>
   );

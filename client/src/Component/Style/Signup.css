@@ -133,7 +133,7 @@ h1.HeadingSignup {
     font-weight: 400;
     line-height: normal;
     text-align: center;
-    margin-right: 123px;
+    margin-right: 250px;
     margin-top: 120px;
 }
 
@@ -148,4 +148,23 @@ img.logosignupImage {
     margin-top: -100px;
     position: absolute;
     margin-left: 30px;
+}
+
+button.logintopage {
+    margin-top: -40px;
+    width: 130px;
+    height: 40px;
+    border-radius: 40px;
+    background: #515BBA;
+    border-style: none;
+    cursor: pointer;
+    color: #FFFEFE;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    /* margin-right: 123px;
+    margin-top: 120px; */
 }
