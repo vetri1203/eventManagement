@@ -23,6 +23,7 @@ export const AddMahal = async (req, res) => {
       Place,
       Parking,
       About,
+      district
     } = req.body;
 
     if (
@@ -56,6 +57,7 @@ export const AddMahal = async (req, res) => {
           Place: Place,
           Id: id,
           About: About,
+          district,district
           //   Images:{data:req.file.buffer}
         });
 

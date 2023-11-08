@@ -7,7 +7,7 @@ const Mahal = new mongoose.Schema(
     },
     MahalName: {
       type: String,
-      require: true,
+      require: true, 
     },
     NumberOfSeat: {
       type: Number,
@@ -41,6 +41,13 @@ const Mahal = new mongoose.Schema(
       type: String,
       require: true,
     },
+    district: { 
+      type: String,
+      // required: true,
+    },
+    date:Date,
+    isBooked:Boolean,
+    availableDates: [Date],
   },
   { timestamps: true }
 );

@@ -24,6 +24,6 @@ mongoose
   .catch((e) => console.log(`Error while connecting DataBase ${e}`));
 
 //assigning port number
-app.listen(8081, () =>
+app.listen(8082, () =>
   console.log(`app listening in port of ${process.env.PORT_No}`)
 );
