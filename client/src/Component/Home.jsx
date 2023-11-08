@@ -7,13 +7,13 @@ import "./Style/Home.css";
 import MainImage from "../Component/Images/homeimage1.png";
 
 const Home = () => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [requestStatus, setRequestStatus] = useState("idle"); // "idle", "loading", "success", "error"
+  const [requestStatus, setRequestStatus] = useState("idle");
 
   const cookiesData = Cookies.get("tokenName");
 
