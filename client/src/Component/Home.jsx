@@ -1,87 +1,69 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import decode from "jwt-decode";
 import Cookies from "js-cookie";
 import "./Style/Home.css";
 import MainImage from "../Component/Images/homeimage1.png";
 
 const Home = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate;
 
-  const [Mahal, setMahal] = useState("");
-  const [listOfMahal, setList] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
   const [error, setError] = useState(null);
-  const [status, setStatus] = useState();
-  const [Data, setData] = useState({
-    isLoading: false,
-    isData: undefined,
-  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [requestStatus, setRequestStatus] = useState("idle"); // "idle", "loading", "success", "error"
 
   const cookiesData = Cookies.get("tokenName");
 
   useEffect(() => {
     if (!cookiesData) {
       console.log("home");
-      alert("login and try again..");
+      alert("Login and try again..");
       navigate("/login");
-      return;
     } else {
       console.log(decode(cookiesData).Email);
     }
+  }, [navigate, cookiesData]);
 
-    if (setData.isLoading) {
-      setStatus("Loading.....");
-    } else {
-      setStatus("");
-    }
-  }, [navigate, cookiesData, setData.isLoading]);
-  const SearchSubmit = async (e) => {
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSearchSubmit = async (e) => {
     e.preventDefault();
-    console.log(Mahal);
-    setData((prev) => ({ ...prev, isLoading: true }));
+    setIsLoading(true);
+    setRequestStatus("loading");
+
     try {
-      const response = await axios.post(`http://localhost:8082/search`, {
-        Mahal,
+      const response = await axios.post("http://localhost:8082/search", {
+        Mahal: searchQuery,
       });
 
-      if (response.data) {
-        setData((prev) => ({
-          ...prev,
-          isLoading: false,
-          isData: response.data,
-        }));
+      const { data } = response;
 
-        setList(response.data);
-        if (listOfMahal.length===0) {
-          setError("No Data...");
-          return;
-        } else {
-          setError(null);
-        }
+      if (data) {
+        setSearchResults(data);
+        setIsLoading(false);
+        setRequestStatus("success");
+        setError(null);
       } else {
-        setData((prev) => ({ ...prev, isLoading: false }));
+        setIsLoading(false);
+        setRequestStatus("error");
         console.log(response);
-        setList([]);
-
+        setSearchResults([]);
         setError("No Mahals found.");
-        return (
-          <>
-            <span>{Data}</span>
-          </>
-        );
       }
     } catch (error) {
+      setIsLoading(false);
+      setRequestStatus("error");
       console.error("Error fetching data:", error);
       setError("An error occurred while fetching data.");
     }
   };
 
-  const handleSearch = (e) => {
-    setMahal(e.target.value);
-  };
-
-  const VewCard = (id) => {
+  const viewCard = (id) => {
     console.log(id);
     navigate("/about", { state: { id } });
   };
@@ -115,35 +97,43 @@ const Home = () => {
       {cookiesData && (
         <div className="searchContainer">
           <div className="HomeContaier">
-            <form action="post" onSubmit={SearchSubmit} className="formSearch">
+            <form
+              action="post"
+              onSubmit={handleSearchSubmit}
+              className="formSearch"
+            >
               <input
                 className="SearchMahal"
                 type="text"
                 placeholder="Search Marriage Mahal"
-                value={Mahal}
-                onChange={handleSearch}
+                value={searchQuery}
+                onChange={handleSearchChange}
               />
-              <button type="submit" className="searchbtn">
+              <button type="submit" className="searchbtn" disabled={isLoading}>
                 Search
               </button>
             </form>
 
-            {error ? (
+            {requestStatus === "loading" && (
+              <p className="loading-message">Loading...</p>
+            )}
+            {requestStatus === "error" && (
               <p className="error-message">{error}</p>
-            ) : (
+            )}
+            {requestStatus === "success" && (
               <div className="listContainer">
-                {listOfMahal.map((data, i) => (
+                {searchResults.map((data, i) => (
                   <div key={i}>
                     <span className="mahalname">
                       <b>{data.MahalName}</b> <br />
                     </span>
-                    <span className="mahalamount">Price : {data.Amount}</span>{" "}
+                    <span className="mahalamount">Price: {data.Amount}</span>{" "}
                     <br />
                     <span className="mahalSeats">
-                      Seat : {data.NumberOfSeat}
+                      Seat: {data.NumberOfSeat}
                     </span>
                     <button
-                      onClick={() => VewCard(data.Id)}
+                      onClick={() => viewCard(data.Id)}
                       className="viewmorebtn"
                     >
                       View more
@@ -152,11 +142,6 @@ const Home = () => {
                 ))}
               </div>
             )}
-
-            <div>
-              <span>{error}</span>
-              <span>{status}</span>
-            </div>
           </div>
         </div>
       )}
