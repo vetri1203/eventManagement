@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import decode from "jwt-decode";
+// import decode from "jwt-decode";
 
 const Home = () => {
   const navigate = useNavigate();

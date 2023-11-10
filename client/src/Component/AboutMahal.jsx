@@ -15,10 +15,10 @@ const AboutMahal = () => {
   const selectedDate = new Date(location.state.date).toISOString();
   const selectedDistrict = location.state.district;
 
-  const handleConfirm = async () => {
+  const handleConfirm = async (MahalName) => {
     const userId = decode(cookiesData).Email;
     const mahalId = location.state.id;
-
+    const mahalName = MahalName;
     if (!userId || !selectedDate || !mahalId) {
       console.error("User ID, selected date, or Mahal ID is missing.");
       return;
@@ -29,6 +29,7 @@ const AboutMahal = () => {
         MahalId: mahalId,
         UserName: userId,
         SelectedDate: selectedDate,
+        MahalName:mahalName,
       });
 
       console.log("Booking response:", response.data);
@@ -61,6 +62,8 @@ const AboutMahal = () => {
   };
 
   useEffect(() => {
+
+    setBookingStatus("");
     if (!cookiesData) {
       console.log("no user");
       alert("Login and try again...");
@@ -123,7 +126,7 @@ const AboutMahal = () => {
           </div>
           {bookingStatus && <p>{bookingStatus}</p>}
 
-          <button onClick={handleConfirm}>Confirm</button>
+          <button onClick={()=>handleConfirm(responseData.MahalName)}>Confirm</button>
         </div>
       )}
     </>

@@ -45,8 +45,6 @@ const Mahal = new mongoose.Schema(
       type: String,
       // required: true,
     },
-    date: Date,
-    isBooked: Boolean,
     unavailableDates: [{ type: Date }],
   },
   { timestamps: true }
