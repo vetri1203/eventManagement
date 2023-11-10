@@ -1,23 +1,24 @@
 import { MahalDetails } from "../Models/MahalDetails.js";
 
 const NewSearch = async (req, res) => {
-  const { district, date } = req.body;
+  const { date, district } = req.body;
 
   try {
     const availableMahals = await MahalDetails.find({
-      district: district,
-      date: date,
+      district,
+      unavailableDates: { $ne: new Date(date) },
     });
 
-    res.send(availableMahals)
-    // console.log(availableMahals);
-    // if (availableMahals.length > 0) {
-    //   res.send(availableMahals);
-    // } else {
-    //   res.send("No Mahal");
-    // }
+    if (availableMahals.length > 0) {
+      res.json(availableMahals);
+    } else {
+      res.json({
+        message: "No Mahals available for the selected date and district",
+      });
+    }
   } catch (err) {
-    res.status(500).json({ message: 'Server error' });
+    console.error("Server error:", err);
+    res.status(500).json({ message: "Server error" });
   }
 };
 
