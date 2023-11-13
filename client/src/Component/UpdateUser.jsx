@@ -9,15 +9,18 @@ const UpdateUser = () => {
     const Navigate = useNavigate();
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
-  const [Mail, setMail] = useState(jwtDecode(usertoken).Email);
+  const [Mail, setMail] = useState('');
   const [PhoneNumber, setPhoneNumber] = useState("");
     const [Result, setResult] = useState('');
   useEffect(() => {
-    const fetchUserData = async () => {
+      const fetchUserData = async () => {
       if (!usertoken) {
         // Handle the case where the user is not authenticated.
-        return alert("Login again...");
+          alert("Login again...");
+          return Navigate('/login');
       }
+        setMail(jwtDecode(usertoken).Email);
+          
 
       try {
         const response = await axios.post(`http://localhost:8082/update`, {
@@ -86,7 +89,7 @@ const UpdateUser = () => {
 
           <label htmlFor="LastName">Last Name</label>
           <input
-            type="text"
+            type="text" id="LastName"
             value={LastName}
             onChange={(e) => setLastName(e.target.value)}
           />
@@ -94,7 +97,7 @@ const UpdateUser = () => {
 
           <label htmlFor="PhoneNumber">Phone Number</label>
           <input
-            type="text"
+            type="text" id="PhoneNumber"
             value={PhoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
