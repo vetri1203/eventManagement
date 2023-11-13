@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   const [district, setDistrict] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(""); 
   const [searchResult, setSearchResult] = useState([]);
   const [searchFailed, setSearchFailed] = useState(false);
   const cookiesData = Cookies.get("tokenName");
@@ -26,6 +26,7 @@ const Home = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
     try {
       const response = await axios.post(`http://localhost:8082/new`, {
         district,
@@ -40,7 +41,7 @@ const Home = () => {
         setSearchFailed(true);
       }
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       setSearchFailed(true);
     }
   };

@@ -7,6 +7,7 @@ import { AboutMahal } from '../Components/AboutMahal.js';
 import NewSearch from '../Components/NewSearch.js';
 // import {  } from '../Components/Booking.js';
 import bookMahal from '../Components/Booking.js';
+import {UpdateUser,  UpdatedUser } from '../Components/UpdateUser.js';
 
 
 
@@ -18,4 +19,6 @@ Routes.post('/mahal',AddMahal);
 Routes.post('/search',Search);
 Routes.post('/new',NewSearch);
 Routes.post('/booking',bookMahal)
-Routes.post('/about',AboutMahal);
+Routes.post('/about', AboutMahal);
+Routes.post('/update', UpdateUser);
+Routes.post('/updated', UpdatedUser);

@@ -20,7 +20,8 @@ const AboutMahal = () => {
     const mahalId = location.state.id;
     const mahalName = MahalName;
     if (!userId || !selectedDate || !mahalId) {
-      console.error("User ID, selected date, or Mahal ID is missing.");
+      // console.error("User ID, selected date, or Mahal ID is missing.");
+      alert("something went worng..")
       return;
     }
 
@@ -32,10 +33,10 @@ const AboutMahal = () => {
         MahalName:mahalName,
       });
 
-      console.log("Booking response:", response.data);
+      // console.log("Booking response:", response.data);
       setBookingStatus("Booking Successful!");
     } catch (error) {
-      console.error("Error booking Mahal:", error);
+      // console.error("Error booking Mahal:", error);
       setBookingStatus("Booking Failed. Please try again.");
     }
   };
@@ -65,7 +66,7 @@ const AboutMahal = () => {
 
     setBookingStatus("");
     if (!cookiesData) {
-      console.log("no user");
+      // console.log("no user");
       alert("Login and try again...");
       navigate("/login");
     }

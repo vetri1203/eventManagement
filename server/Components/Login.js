@@ -27,7 +27,7 @@ export const Login = async(req,res)=>{
                 else{
                     res.send("enter correct password..")
                 }
-            }
+            } 
             else{
                 res.send("No User Found")
             }
