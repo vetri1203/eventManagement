@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0px;
     padding: 0px;
 }
@@ -14,10 +14,10 @@
     width: 1519px;
     height: 670px;
 }
-/* .aboutContainer {
+.aboutContainer {
     width: 380px;
     height: 275px;
-} */
+}
 .aboutContent{
     
     margin-top: -500px;
@@ -32,7 +32,7 @@
     margin-bottom: 50px;
 }
 .imagecontainer{
-    /* background: lightgray 50% / cover no-repeat; */
+    background: lightgray 50% / cover no-repeat;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .AboutUsBtn{
@@ -76,7 +76,7 @@
     margin-top: 56px;
     margin-right: 0px;
     justify-content: center;
-    /* justify-content: space-around; */
+    justify-content: space-around;
 }
 .searchbtn {
     width: 200px;
@@ -136,19 +136,19 @@ span.react-datepicker__year-read-view--down-arrow {
 }
 
 button {
-    /* width: 40px; */
+    width: 40px;
 }
 button:hover{
-    /* background-color: #f80ea2; */
+    background-color: #f80ea2;
     background-color: #3636b7;
     color: white;
     border-style: none;
     border-radius: 5px;
 }
 
-/* html{
+html{
     background-color: #3636b7;
-} */
+}
 span {
     color: #565656;
     margin-top: -100px;
@@ -166,4 +166,134 @@ h2 {
 button.viewmorebtn:hover{
     background-color: #e32337;
     color: white;
+} */
+
+
+/* #515BBA */
+.div-homepage{
+    /* overflow: hidden; */
+    /* overflow-y: hidden; */
+    overflow-x: hidden;
+}
+p.para-class-nav {
+    padding: 6px;
+    font-size: x-large;
+    color: white;
+    letter-spacing: 5px;
+}
+.main-bar-design {
+    background-color: #515BBA;
+    width: 1536px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+img.image-profile {
+    border-radius: 20px;
+    cursor: pointer;
+}
+img.part-img {
+    width: 1530px;
+    height: 667px;
+    /* opacity: .2; */
+}
+p.para-contemt {
+    position: absolute;
+    padding: 70px;
+    font-size: 70px;
+    font-weight: lighter;
+    margin-left: 245px;
+    color: white;
+}
+img.part-img::before {
+    background: black; /* Black overlay color */
+    opacity: 0.5; /* Opacity level (adjust as needed) */
+}
+form.from-search-mahals {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: -335px;
+    margin-left: 340px;
+    gap: 1px;
+}
+input.input-district {
+    width: 360px;
+    height: 45px;
+    border-style: none;
+    font-size: large;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 5px 0px 0px 5px;
+    outline: none;
+}
+input.input-date {
+    width: 360px;
+    height: 45px;
+    border-style: none;
+    font-size: large;
+    cursor: pointer;
+    background-color: white;
+    outline: none;
+}
+button.search-button {
+    width: 140px;
+    height: 45px;
+    border: none;
+    background-color: #515BBA;
+    font-size: x-large;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    transition: width 0.3s, height 0.3s;
+}
+button.search-button:hover {
+    transform: scale(1.1);
+}
+.displaying-mahal-details {
+    margin-top: 286px;
+    background-color: #515BBA;
+}
+.mahal-detail{
+    color: white;
+}
+h2.h2-display-availabe-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+.span-contents {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+p.search-para {
+    position: absolute;
+    margin-left: 340px;
+    margin-top: -75px;
+    font-size: x-large;
+    color: wheat;
+}
+p.para-no-found {
+    position: absolute;
+    margin-left: 340px;
+    margin-top: -75px;
+    font-size: x-large;
+    color: wheat;
+}
+button.viewmorebtn {
+    width: 110px;
+    height: 30px;
+}
+button.viewmorebtn {
+    border-style: none;
+    width: 110px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #abb3ff78;
+    cursor: pointer;
 }

@@ -85,6 +85,9 @@
     text-align: center;
     margin-right: 245px;
 }
+.SubmitBtn:hover{
+    border-radius: 5px;
+}
 
 .SubmitAccountBtn {
     width: 200px;
@@ -103,6 +106,9 @@
     text-align: center;
     margin-left: 50px;
     margin-top: -40px;
+}
+.SubmitAccountBtn:hover{
+    border-radius: 5px;
 }
 
 span {
@@ -134,23 +140,5 @@ h2.statementOR {
     margin-top: 15px;
     color: black;
 }
-button.buttonGoogle {
-    margin-right: 0px;
-    margin-top: 486px;
-    color: #FFFEFE;
-    width: 385px;
-    height: 40px;
-    flex-shrink: 0;
-    border-radius: 10px;
-    background: #515BBA;
-    /* background: #D9D9D9; */
-    border-style: none;
-    cursor: pointer;
-    font-family: Inter;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    text-align: center;
-}
+
 

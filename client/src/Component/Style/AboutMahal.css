@@ -1,9 +1,32 @@
-/* .mahalName{
-    display: flex;
-    flex-direction: row;
-} */
-span {
+
+#span-color {
     color: #000000;
-    margin-top: -100px;
-    margin-right: 228px;
+    font-size: xx-large;
+    /* letter-spacing: 5px; */
+}
+
+.Container {
+    margin-left: 615px;
+    margin-top: 110px;
+}
+.para-booking-success{
+    color: green;
+    font-size: xxx-large;
+    
+}
+button.button-booking {
+    margin-left: 75px;
+    margin-top: 40px;
+    width: 230px;
+    height: 40px;
+    border-style: none;
+    background-color: #515BBA;
+    font-size: x-large;
+    color: white;
+    border-radius: 35px;
+    cursor: pointer;
+    position: absolute;
+}
+button.button-booking:hover{
+    border-radius: 5px;
 }

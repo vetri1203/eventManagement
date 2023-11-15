@@ -1,0 +1,55 @@
+.div-updates {
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+    margin-top: 30px;
+}
+.input-update {
+    width: 360px;
+    height: 40px;
+    border-style: groove;
+    border-radius: 5px;
+    font-size: large;
+}
+.label-class{
+    font-size: large;
+}
+button.update {
+    width: 150px;
+    height: 35px;
+    margin-left: -20px;
+    border-style: none;
+    background-color: #515BBA;
+    font-size: x-large;
+    color: white;
+    border-radius: 35px;
+    cursor: pointer;
+}
+button.update:hover{
+    border-radius: 5px;
+}
+.span-and-back-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 600px;
+    margin-top: 200px;
+}
+button.button-back {
+    width: 200px;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: 28px;
+    border-style: none;
+    background-color: #515BBA;
+    font-size: x-large;
+    color: white;
+    border-radius: 35px;
+    cursor: pointer;
+}
+button.button-back:hover{
+    border-radius: 5px;
+}
+span.span-style {
+    font-size: x-large;
+}

@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import decode from "jwt-decode";
+import './Style/AboutMahal.css';
 
 const AboutMahal = () => {
   const location = useLocation();
@@ -99,35 +100,35 @@ const AboutMahal = () => {
     <>
       {cookiesData && (
         <div className="Container">
-          <div>
-            <span className="mahalName">
+          <div className="1">
+            <span className="mahalName" id="span-color">
               Mahal Name: {responseData.MahalName}
             </span>
           </div>
-          <div>
-            <span>Seat Capacity: {responseData.NumberOfSeat}</span>
+          <div className="1">
+            <span className="seat-capacity" id="span-color">Seat Capacity: {responseData.NumberOfSeat}</span>
           </div>
-          <div>
-            <span>Rooms: {responseData.Rooms}</span>
+          <div className="2">
+            <span className="rooms" id="span-color">Rooms: {responseData.Rooms}</span>
           </div>
-          <div>
-            <span>Mahal Type: {responseData.MahalType}</span>
+          <div className="3">
+            <span className="mahaltype" id="span-color">Mahal Type: {responseData.MahalType}</span>
           </div>
-          <div>
-            <span>Amount: {responseData.Amount}</span>
+          <div className="4">
+            <span className="amount" id="span-color">Amount: {responseData.Amount}</span>
           </div>
-          <div>
-            <span>Parking: {responseData.Parking}</span>
+          <div className="5">
+            <span className="parking" id="span-color">Parking: {responseData.Parking}</span>
           </div>
-          <div>
-            <span>Place: {responseData.Place}</span>
+          <div className="6">
+            <span className="place" id="span-color">Place: {responseData.Place}</span>
           </div>
-          <div>
-            <span>About: {responseData.About}</span>
+          <div className="7">
+            <span className="about" id="span-color">About: {responseData.About}</span>
           </div>
-          {bookingStatus && <p>{bookingStatus}</p>}
+          {bookingStatus && <p className="para-booking-success">{bookingStatus}</p>}
 
-          <button onClick={()=>handleConfirm(responseData.MahalName)}>Confirm</button>
+          <button onClick={()=>handleConfirm(responseData.MahalName)} className="button-booking">Confirm</button>
         </div>
       )}
     </>

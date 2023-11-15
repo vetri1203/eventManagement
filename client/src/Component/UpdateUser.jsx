@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import './Style/UpdateUser.css'
 
 const UpdateUser = () => {
   const usertoken = Cookies.get("tokenName");
@@ -73,46 +74,60 @@ const UpdateUser = () => {
     }
   };
 
+
+  const Redirect = ()=>{
+    Navigate('/home')
+  }
   return (
     <>
       <fieldset>
         <legend>{FirstName}</legend>
-        <form action="" onSubmit={handleSubmit}>
-          <label htmlFor="firstName">First Name</label>
-          <input
-            type="text"
-            id="firstName"
-            value={FirstName}
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-          <br />
+        <div className="div-updates">
+          <form action="" onSubmit={handleSubmit} className="form-updatepage">
+            <label htmlFor="firstName" className="label-class">First Name</label><br />
+            <input
+              type="text"
+              id="firstName"
+              value={FirstName}
+              className="input-update"
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+            <br />
 
-          <label htmlFor="LastName">Last Name</label>
-          <input
-            type="text" id="LastName"
-            value={LastName}
-            onChange={(e) => setLastName(e.target.value)}
-          />
-          <br />
+            <label htmlFor="LastName" className="label-class">Last Name</label><br />
+            <input
+              type="text" id="LastName"
+              value={LastName}
+              className="input-update"
+              onChange={(e) => setLastName(e.target.value)}
+            />
+            <br />
 
-          <label htmlFor="PhoneNumber">Phone Number</label>
-          <input
-            type="text" id="PhoneNumber"
-            value={PhoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
-          />
-          <br />
+            <label htmlFor="PhoneNumber" className="label-class">Phone Number</label><br />
+            <input
+              type="text" id="PhoneNumber"
+              value={PhoneNumber}
+              className="input-update"
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
+            <br />
 
-          <button type="submit">Update</button>
-        </form>
-        <span
-          style={{
-            color:
-              Result === "Profile updated successfully" ? "green" : "red",
-          }}
-        >
-          {Result}
-        </span>
+            <button type="submit" className="update">Update</button>
+          </form>
+        </div>
+        <div className="span-and-back-btn">
+          <span
+          className="span-style"
+            style={{
+              color:
+                Result === "Profile updated successfully" ? "green" : "red",
+            }}
+          >
+            {Result}
+          </span>
+          <button onClick={Redirect} className="button-back">Back to Home</button>
+        </div>
+
       </fieldset>
     </>
   );
