@@ -70,5 +70,105 @@ button.btn-home:hover{
 .legend {
     font-size: 30px; 
 }
+button.btn-for-catring {
+    width: 300px;
+    height: 90px;
+    border-style: none;
+    font-size: 30px;
+    /* background: rebeccapurple; */
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+button.btn-for-parlor {
+    width: 300px;
+    height: 90px;
+    border-style: none;
+    font-size: 30px;
+    /* background: rebeccapurple; */
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.div-for-catring.and.parlor {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px;
+}
+/* Define the keyframes for the wave effect */
+/* Define the animation keyframes */
+@keyframes ripple {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+  
+  /* Apply styles to the button */
+  button.btn-for-catring {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Create the wave effect */
+  button.btn-for-catring:active::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    animation: ripple 0.6s ease-out;
+    transform: scale(0);
+    pointer-events: none;
+  }
+  
+  @keyframes ripple {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+  
+  /* Apply styles to the button */
+  button.btn-for-parlor {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Create the wave effect */
+  button.btn-for-parlor:active::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    animation: ripple 0.6s ease-out;
+    transform: scale(0);
+    pointer-events: none;
+  }
 
 

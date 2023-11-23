@@ -7,6 +7,8 @@ import Signup from "./Component/Signup";
 import details from "./Component/Detail";
 import AboutMahal from "./Component/AboutMahal";
 import home from "./Component/Home";
+import Catring from "./Component/Catring.jsx";
+import Cars from "./Component/Cars.jsx";
 import UpdateUser from "./Component/UpdateUser.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -20,6 +22,8 @@ root.render(
       <Route path="/about" Component={AboutMahal} />
       <Route path="/home" Component={home} />
       <Route path="/update" Component={UpdateUser} />
+      <Route path="/catring" Component={Catring} />
+      <Route path="/cars" Component={Cars} />
     </Routes>
   </BrowserRouter>
 );

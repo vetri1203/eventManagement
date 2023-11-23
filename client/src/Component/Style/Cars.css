@@ -1,0 +1,50 @@
+/* Apply styles to the container */
+.cars-div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding-left: 40px;
+    padding-top: 30px;
+    /* Adjust the container width and other styles as needed */
+  }
+  
+  /* Apply styles to each item */
+  #div-catring-multiple {
+    width: 250px; /* Adjust as per your layout */
+    padding: 10px;
+    box-sizing: border-box;
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-style: groove;
+    gap: 30px;
+    cursor: pointer;
+  }
+  #div-catring-multiple:hover{
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  
+  /* Apply styles to images inside each item */
+  #images-cars {
+    width: 100%; /* Ensures the image fills the container */
+    height: auto; /* Maintains aspect ratio */
+    /* Additional styles like max-width, max-height, etc., can be applied */
+  }
+  
+  .btn-backto-home{
+    width: 230px;
+    height: 40px;
+    border-style: none;
+    background-color: #515BBA;
+    font-size: x-large;
+    color: white;
+    border-radius: 35px;
+    cursor: pointer;
+    margin-top: 40px;
+  }
+
+  .btn-backto-home:hover{
+    border-radius: 5px;
+  }

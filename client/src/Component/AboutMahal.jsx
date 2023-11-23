@@ -168,6 +168,11 @@ const AboutMahal = () => {
           </div>
         )}
     </div>
+
+    <div className="div-for-catring and parlor">
+      <button className="btn-for-catring">Catring</button>
+      <button className="btn-for-parlor">Parlor</button>
+    </div>
     <div className="backbtn">
       <button className="btn-home" onClick={backHome}>Back to Home</button>
     </div>
