@@ -3,6 +3,7 @@
     flex-direction: column;
     margin-left: 80px;
     margin-top: 30px;
+    padding-left: 20px;
 }
 .input-update {
     width: 360px;
@@ -52,4 +53,11 @@ button.button-back:hover{
 }
 span.span-style {
     font-size: x-large;
+}
+img.profile-update {
+    margin-left: 215px;
+    width: 300px;
+    position: absolute;
+    margin-top: 100px;
+    cursor: pointer;
 }

@@ -6,8 +6,7 @@
 }
 
 .Container {
-    margin-left: 615px;
-    margin-top: 110px;
+    margin-left: 140px;
 }
 .para-booking-success{
     color: green;
@@ -30,3 +29,46 @@ button.button-booking {
 button.button-booking:hover{
     border-radius: 5px;
 }
+.images-div{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+img#mahalimg {
+    width: 300px;
+    height: auto;
+    /* margin: 5px; */
+}
+.whole-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+.carousel-root {
+    outline: none;
+    padding-top: 16px;
+}
+.backbtn {
+    display: flex;
+    justify-content: center;
+}
+button.btn-home {
+    width: 230px;
+    height: 40px;
+    border-style: none;
+    background-color: #515BBA;
+    font-size: x-large;
+    color: white;
+    border-radius: 35px;
+    cursor: pointer;
+    margin-top: 40px;
+}
+button.btn-home:hover{
+    border-radius: 5px;
+}
+.legend {
+    font-size: 30px; 
+}
+
+

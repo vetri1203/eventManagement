@@ -44,6 +44,7 @@ h1.HeadingSignup {
     line-height: normal;
     text-align: center;
     margin-bottom: 40px;
+    outline: none;
 }
 
 .LastName{
@@ -62,6 +63,7 @@ h1.HeadingSignup {
     line-height: normal;
     text-align: center;
     margin-bottom: 40px;
+    outline: none;
 }
 
 .PhoneNumber{
@@ -80,6 +82,7 @@ h1.HeadingSignup {
     line-height: normal;
     text-align: center;
     margin-bottom: 40px;
+    outline: none;
 }
 
 .Email{
@@ -98,6 +101,7 @@ h1.HeadingSignup {
     line-height: normal;
     text-align: center;
     margin-bottom: 40px;
+    outline: none;
 }
 
 .Password{
@@ -116,6 +120,7 @@ h1.HeadingSignup {
     line-height: normal;
     text-align: center;
     margin-bottom: 40px;
+    outline: none;
 }
 
 .Signupbtn{

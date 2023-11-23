@@ -48,6 +48,7 @@
     line-height: normal;
     text-align: center;
     margin-bottom: 40px;
+    outline: none;
 }
 
 .inputPassword{
@@ -66,6 +67,7 @@
     line-height: normal;
     text-align: center;
     margin-bottom: 80px;
+    outline: none;
 }
 
 .SubmitBtn {

@@ -171,9 +171,9 @@ button.viewmorebtn:hover{
 
 /* #515BBA */
 .div-homepage{
-    /* overflow: hidden; */
+    overflow: hidden;
     /* overflow-y: hidden; */
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 p.para-class-nav {
     padding: 6px;
@@ -188,24 +188,22 @@ p.para-class-nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    
 }
 img.image-profile {
-    border-radius: 20px;
+    border-radius: 46px;
     cursor: pointer;
+    width: 38px;
+    margin-right: 26px;
 }
+
+
 img.part-img {
     width: 1530px;
     height: 667px;
     /* opacity: .2; */
 }
-p.para-contemt {
-    position: absolute;
-    padding: 70px;
-    font-size: 70px;
-    font-weight: lighter;
-    margin-left: 245px;
-    color: white;
-}
+
 img.part-img::before {
     background: black; /* Black overlay color */
     opacity: 0.5; /* Opacity level (adjust as needed) */
@@ -215,7 +213,7 @@ form.from-search-mahals {
     flex-direction: row;
     align-items: center;
     margin-top: -335px;
-    margin-left: 340px;
+    margin-left: 300px;
     gap: 1px;
 }
 input.input-district {
@@ -227,6 +225,7 @@ input.input-district {
     background-color: white;
     border-radius: 5px 0px 0px 5px;
     outline: none;
+    padding-left: 15px;
 }
 input.input-date {
     width: 360px;
@@ -236,6 +235,8 @@ input.input-date {
     cursor: pointer;
     background-color: white;
     outline: none;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 button.search-button {
     width: 140px;
@@ -273,14 +274,14 @@ h2.h2-display-availabe-head {
 }
 p.search-para {
     position: absolute;
-    margin-left: 340px;
+    margin-left: 300px;
     margin-top: -75px;
     font-size: x-large;
     color: wheat;
 }
 p.para-no-found {
     position: absolute;
-    margin-left: 340px;
+    margin-left: 300px;
     margin-top: -75px;
     font-size: x-large;
     color: wheat;
@@ -296,4 +297,15 @@ button.viewmorebtn {
     border-radius: 5px;
     background-color: #abb3ff78;
     cursor: pointer;
+    color: white;
+}
+
+p.para-contemt {
+    position: absolute;
+    padding: 70px;
+    font-size: 90px;
+    font-weight: lighter;
+    margin-left: 142px;
+    color: white;
+    margin-top: 55px;
 }

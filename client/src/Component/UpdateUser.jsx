@@ -4,6 +4,7 @@ import jwtDecode from "jwt-decode";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './Style/UpdateUser.css'
+import profile from './Images/profilelogo.png';
 
 const UpdateUser = () => {
   const usertoken = Cookies.get("tokenName");
@@ -78,10 +79,47 @@ const UpdateUser = () => {
   const Redirect = ()=>{
     Navigate('/home')
   }
+
+  const [profileImage, setProfileImage] = useState(null);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfileImage(reader.result);
+      };
+      reader.onerror = (error) => {
+        console.error('Error reading the file:', error);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+
+
+
   return (
     <>
       <fieldset>
         <legend>{FirstName}</legend>
+        <div className="profile-update">
+            <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            id="profileImageInput"
+            style={{ display: 'none' }}
+          />
+          <label htmlFor="profileImageInput">
+            <img
+              src={profile || 'default-profile-image-url.jpg'} // Provide a default image URL
+              alt="update-profile"
+              className="profile-update"
+              style={{ cursor: 'pointer', width: '300px', height: '300px' }}
+            />
+          </label>
+        </div>
         <div className="div-updates">
           <form action="" onSubmit={handleSubmit} className="form-updatepage">
             <label htmlFor="firstName" className="label-class">First Name</label><br />

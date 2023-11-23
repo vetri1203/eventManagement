@@ -48,7 +48,10 @@ const Home = () => {
     }
   };
   // const updatePage =()=>{
-  //   Navigate('/UpdateUser');
+  //   Navigate('/login');
+  // }
+  // const updatePage =()=>{
+  //   Navigate('/UpdateUser'); 
   // }
 
   return (
@@ -56,7 +59,8 @@ const Home = () => {
       <div className="div-homepage">
         <div className="main-bar-design">
           <p className="para-class-nav">PERFECT PLANNERS</p>
-          <img  src={profile} alt="profile-logo"  className="image-profile"/>
+          
+          <a className="image-profile" href="/update"><img  src={profile} alt="profile-logo"  className="image-profile"/></a>
         </div>
         
         <div className="image-div">
