@@ -115,6 +115,12 @@ const AboutMahal = () => {
     navigate('/home');
   }
 
+  const CatringNav = () => {
+    navigate('/catring');
+  } 
+  const parlorNav =() =>{
+    navigate('/cars')
+  }
   return (
     <>
 
@@ -170,8 +176,8 @@ const AboutMahal = () => {
     </div>
 
     <div className="div-for-catring and parlor">
-      <button className="btn-for-catring">Catring</button>
-      <button className="btn-for-parlor">Parlor</button>
+      <button className="btn-for-catring" onClick={CatringNav}>Catring Services</button>
+      <button className="btn-for-parlor" onClick={parlorNav}>Car Booking</button>
     </div>
     <div className="backbtn">
       <button className="btn-home" onClick={backHome}>Back to Home</button>
